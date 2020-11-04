@@ -1,0 +1,274 @@
+* {
+    box-sizing: border-box;
+}
+
+html{
+    height: 100%;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    overflow-x: hidden;
+    height: 100%;
+    display: grid;
+    grid-template-rows: 3.5rem auto fit-content(8rem);
+    grid-template-areas: "header" 
+                         "main" 
+                        "footer";
+}
+
+main{
+    grid-area: main;
+}
+
+.backdrop{
+    position: fixed;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.2s linear;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+/* Header */
+.main-header{
+    width: 100%;
+    background-color: #2ddf5c;
+    padding: 8px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.toggle-button {
+  width: 48px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding-top: 0;
+  padding-bottom: 0;
+  vertical-align: middle;
+}
+
+.toggle-button:focus {
+  outline: none;
+}
+
+.toggle-button__bar {
+  width: 100%;
+  height: 3.2px;
+  background: black;
+  display: block;
+  margin: 9.6px 5px;
+}
+
+.main-header__brand{
+    margin: 0 0 0 12px;
+    display: none;
+    text-decoration: none;
+}
+
+.main-header__brand img{
+    height: 2.5rem;
+}
+
+.main-nav{
+    display:none;
+}
+
+.main-nav__items{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav__item{
+    margin: 0 16px;
+}
+
+.main-nav__item a,
+.mobile-nav__item a{
+    text-decoration: none;
+    color: #034f1f;
+    font-weight: bold;
+    padding: 3px 0;
+}
+
+.main-nav__item a:hover,
+.main-nav__item a:active
+    {
+    color: white;
+    border-bottom: 5px solid white;
+}
+
+.main-nav__item--cta a,
+.mobile-nav__item--cta a{
+    color: white;
+    background-color: #ff1b68;
+    padding: 8px 16px;
+    border-radius: 8px;
+}
+
+.main-nav__item--cta{
+    animation: wiggle 400ms 1s 8  none ;
+}
+
+.main-nav__item--cta a:hover,
+.main-nav__item--cta a:active,
+.mobile-nav__item--cta a:hover,
+.mobile-nav__item--cta a:active
+{
+    color: #ff1b68;
+    background-color: white;
+    border: none;
+}
+
+/* Footer */
+
+#main-footer{
+    background-color: black;
+    color: white;
+    padding: 32px;
+    margin-top: 48px;
+    grid-area: footer;
+}
+
+.main-footer__links{
+    list-style: none;
+    margin:0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.main-footer__link{
+    margin:8px 0;
+}
+
+.main-footer__link a{
+    text-decoration: none;
+    color: white;
+}
+
+.main-footer__link a:hover,
+.main-footer__link a:active{
+    color: #ccc;
+}
+
+/* Button */
+
+
+.button{
+    background: #034f1f;
+    color: white;
+    font: inherit;
+    border: 1.5px solid #034f1f;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.button:hover,
+.button:active{
+    background-color: white;
+    color: #034f1f;
+}
+
+.button:focus{
+    outline: none;
+}
+
+.button[disabled]{
+    cursor: not-allowed;
+    border: #a1a1a1;
+    background-color: #ccc;
+    color: #a1a1a1;
+}
+
+.mobile-nav {
+    position: fixed;
+    z-index: 101;
+    top: 0;
+    left: 0;
+    background: white;
+    width: 80%;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition:transform 300ms ease-in-out;
+  }
+  
+  .mobile-nav__items {
+    width: 90%;
+    height: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .mobile-nav__item {
+    margin: 16px 0;
+  }
+  
+  .mobile-nav__item a {
+    font-size: 1.5rem;
+  }
+
+.open{
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+@media(min-width:640px){
+    .main-header__brand{
+        display: flex;
+    }
+
+    .main-nav{
+        display: flex;
+    }
+
+    .toggle-button {
+       display: none;
+    }
+
+    .main-footer__links{
+        flex-direction: row;
+    }
+
+    .main-footer__link{
+        margin: 0 16px;
+    }
+}
+
+
+
+@keyframes wiggle{
+    0%{
+        transform: rotateZ(0);
+    }
+
+    50%{
+        transform: rotateZ(-10deg);
+    }
+    100%{
+        transform: rotateZ(10deg);
+    }
+}
