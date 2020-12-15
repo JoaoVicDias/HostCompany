@@ -2,7 +2,7 @@
  Host Shop website.
 
 ## Project HostCompany
-This project is a website, totally responsive,where you can choose and buy your game.
+This project is a fully responsive host selling website.
 
 ## About this project
 I developed this website with JavaScript,Html and Css and it's just a frontend project.
