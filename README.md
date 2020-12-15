@@ -18,6 +18,9 @@ I developed this website with JavaScript,Html and Css and it's just a frontend p
  #### Customers Page:
    ![](Custumers-hostPage.gif)
    
+ #### Responsive:
+   ![](repsonsive-hostPage.gif)
+   
 
 ### Stack 
 1. JavaScript - as FrontEnd
